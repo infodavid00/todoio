@@ -12,7 +12,6 @@ export function storeData(data) {
  const store = JSON.parse(localStorage.getItem('todoapp'))
  if (store) {
    store.todo.push(data.todo[0])
-   console.log(store) 
    localStorage.setItem('todoapp', JSON.stringify(store))
     window.location.reload()
  }
@@ -40,10 +39,6 @@ export function completecheckData(data) {
     window.location.reload()
  }
 }
-
-
-
-
 
 
 export function deleteData(data) {

@@ -31,12 +31,12 @@ export default function New({click}) {
         <X onClick={click} width={22} strokeWidth={1} style={{alignSelf:'flex-end',marginTop:'2vh',cursor:'pointer'}} id='display-cancelbtn' />
         </section>
 
-        <h2>New task</h2>
+        <h2>New todo</h2>
         <section style={{marginTop:'5vh', width:'88%'}}>     
-           <textarea onClick={()=> setiserr(false)} value={inputvalue} onChange={handleinpchange} className='display-textarea' placeholder={'Add task title here. max characters(200)'} rows={'4'}></textarea>    
+           <textarea onClick={()=> setiserr(false)} value={inputvalue} onChange={handleinpchange} className='display-textarea' placeholder={'Add todo title here. max characters(200)'} rows={'4'}></textarea>    
            {iserr === true ? <div style={{fontFamily:'nunito',padding:'2vh 2px',color:'var(--app-clA)',fontSize:'14.9px'}}>Limit reached! lists must be less than 200 characters, but recieved {inputvalue.length}</div>
            : null}
-           <input type='submit' value='Create new task' className='display-cta' 
+           <input type='submit' value='Create new todo' className='display-cta' 
            onClick={()=> inputvalue.length > 200 ? setiserr(true)  : storeData(data)}/>
          </section>
       </div>

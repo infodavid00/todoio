@@ -1,7 +1,7 @@
 import React from 'react'
 import '../App.css'
 import '../assets/Todo.css'
-import svg from '../assets/react.svg'
+import svg from '../assets/No data-cuate.svg'
 
 export default function Notodo({setnew}) {
   return (

@@ -35,7 +35,7 @@ export default function IsTodo({data, setnew}) {
       <section className='todo-body'> 
         {data.todo.slice().reverse().map(current => <Card key={current.id} data={current} click={()=>(setshowdelete(true),setdatatodelete(current))} />)}
       </section>
-      <button id='todo-next'>Backup your data</button>
+      {/* <button id='todo-next'></button> */}
     </section>
     {showdelete === true ? <Delete click={()=> setshowdelete(false)} data={datatodelte} /> : null}
    </>

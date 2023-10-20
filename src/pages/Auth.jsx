@@ -2,6 +2,9 @@ import React,{useState} from 'react'
 import '../App.css'
 import '../assets/Todo.css'
 import { Loader, X } from 'react-feather'
+import axios from 'axios'
+import { endpoint, siginroute, signuproute } from '../functions/endpoint';
+
 
 export default function Auth({click}) {
   const [emailvalue, setemailvalue] = useState('')
@@ -27,6 +30,36 @@ export default function Auth({click}) {
   const [errormessage, seterrormessage] = useState('')
   const [isloading, setisloading] = useState(false)
 
+async function handleAuthentication(data, type) {
+   if (validate() !== true) {
+     seterrormessage('both password and username must be more than 8 characters and less than 30chars')
+     setiserr(true)
+     return false
+   }
+   else {     
+       try {
+          setisloading(true)
+         const url = type === 'signin' ? endpoint+siginroute : endpoint+signuproute;
+         const response = await axios.post(url, data, {
+          headers: {'Content-Type': 'application/json'},withCredentials: true})
+         const rs = response.data
+         if (rs.acknowledged === 'Ok') {
+          localStorage.setItem('signature', JSON.stringify({signature : rs.data}))
+          window.location.reload()
+         }
+         else {
+          seterrormessage(rs.message)
+          setiserr(true)
+          setisloading(false)
+         }
+       } catch (err) {
+          seterrormessage('an unknown error occured!')
+          setiserr(true)
+          setisloading(false)
+        }
+   }
+}
+
   return (
     <section className='display-body'>
       <div className='display-container'>
@@ -43,11 +76,11 @@ export default function Auth({click}) {
 
            <section style={{width:'100%',display:isloading === true ? 'none' :'flex',flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>                
            <button className='menu-btn' style={{width:'47%', color:'var(--app-clA)', background:'var(--app-bgC)'}}
-           onClick={()=> validate() !== true ? (seterrormessage('both password and username must be more than 8 characters and less than 30chars'),setiserr(true))  : (setisloading(true),console.log(userscheme))}
+           onClick={()=> handleAuthentication(userscheme,'signin')}
            >Login account</button>
            
            <button className='menu-btn' style={{width:'47%'}}
-           onClick={()=> validate() !== true ? (seterrormessage('both password and username must be more than 8 characters and less than 30chars'),setiserr(true))  : (setisloading(true),console.log(userscheme))}
+           onClick={()=> handleAuthentication(userscheme,'signup')}
            >Create account</button>
            </section>
         

@@ -1,15 +1,13 @@
-import React,{ useState } from 'react'
-import Todo from './Todo'
+import React from 'react'
+import Renderhome from './Renderhome'
 
 export default function Home() {
-  const [showtodo, setshowtodo] = useState(true)
+  function settodo() {
+   return window.location.href = '/todo'
+  }
   return (
     <>
-    {showtodo === false ? (
-      <div>
-      </div>
-    ) : <Todo />
-    }
+    <Renderhome settodo={()=> settodo()} />
     </>
   )
 }

@@ -51,6 +51,15 @@ body {
   src: local('montserrat-extrabold'),local('Montserrat-ExtraBold'),url(./assets/fonts/Montserrat-ExtraBold.ttf)format('truetype');
 }
 
+.app-body-home {
+  background-image :linear-gradient(180deg, rgba(256,255,244,1),white, #f5f5f5);
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
 .app-container-fit {
   width: var(--app-width);
   margin: auto;
@@ -95,7 +104,8 @@ body {
 
 .app-hero-container-b {
   width: 92vw;
-  margin-top: 10vh;
+  margin:auto;
+  margin-top: 9vh;
   display:flex;
   flex-direction: column;
 }
@@ -104,7 +114,17 @@ body {
   font-size: 35px;
   color: var(--app-clA);
   text-align: center;
-  font-family: 'tajawal', sans-serif;
+  font-family: 'interbold', sans-serif;
+  background-image: linear-gradient(45deg, #ff5733, #6e32c9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: 2s animateheader linear infinite;
+}
+@keyframes animateheader {
+  0% {background-image: linear-gradient(45deg, #ff5733, #6e32c9);}
+  50% {background-image: linear-gradient(90deg, #6e32c9, #ff5733);}
+  100% {background-image: linear-gradient(90deg, #331aff, #206a19);}
 }
 .app-hero-cta-b {
   margin-top: 3vh;
@@ -128,8 +148,8 @@ body {
   margin:auto;
   margin-bottom: 1rem;
 }
-.app-hero-cta-b button:hover {
-  border:2px solid var(--app-bgB);
+.app-hero-cta-b button:hover,.app-hero-cta-b button a:hover  {
+  font-family: 'tajawal', sans-serif;
   transition: 0.1s ease;
 }
 .app-hero-containerB div img {
@@ -149,7 +169,7 @@ body {
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: var(--app-bgC);
+  /* background-color: var(--app-bgC); */
   margin-top: 10vh;
   gap: 4vh;
   width: 100%;
@@ -162,6 +182,16 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-shadow: -12px 10px 10px rgba(150,150,150,0.1);
+  animation: 0.5s slidehome forwards;
+  background-image: linear-gradient(20deg, rgba(255,256,256,1),white, #f1f1f1);
+}
+@keyframes slidehome {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}
+.app-about-container:hover {
+  background-image: linear-gradient(90deg, #f1f1f1, rgba(254,255,256,0.8),white);
 }
 .app-about-container h2 {
   color: var(--app-clA);
@@ -202,12 +232,12 @@ body {
 }
 
 .app-developers {
-  background-color: var(--app-bgB);
-  color: white;
+  /* color: white; */
   margin-top: 7vh;
   display:flex;
   padding: 5vh 2vh;
   align-items: center; 
+  /* justify-content: center; */
   flex-direction: column;
 }
 .app-developers h1 {
@@ -215,8 +245,14 @@ body {
   font-size: 35px;
   text-align: center;
 }
+#dev-app h1 {
+  font-family: 'interbold', sans-serif;
+  font-size: 35px; 
+  padding: 5vh 2vw;
+  text-align: center;
+}
 .app-developers img {
-  width: 280px;
+  width: 100%;
   display: block;
   margin: auto;
 }
@@ -393,20 +429,53 @@ body {
   color: var(--app-clB);
 }
 
-
-
-
+.app-dev-card {
+  padding: 10px;
+  border-left: 4px solid dodgerblue;
+  /* margin-bottom: 3vh; */
+  margin-top: 3vh;
+}
+.app-dev-card h3 {
+  font-family: 'interbold';
+}
+app-dev-card p {
+  color:rgba(0,0,0,0.7)
+}
+#tools {
+  background-image: linear-gradient(20deg,rgba(256,240,256,1), #f1f2f4, white);
+  padding: 7vh auto;
+}
+#tools div h1 {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(120deg,rgba(226,200,236,1), #020202, pink);
+}
 
 
 
 
 
 @media (min-width:700px) {
-.app-about-container {
-  width: 300px;
-  /* height: 400px; */
+/* .app-about-body {
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+} */
+#dev-app h1 {
+  font-family: 'interbold', sans-serif;
+  font-size: 50px;
+  text-align: center;
 }
 
+.app-about-container {
+  width: 500px;
+  /* height: 400px; */
+}
+/* #ab1 {
+  margin-left: -8.5%; */
+/* } */
 .display-container {
   width: 35%;
   padding:10px;
@@ -420,11 +489,19 @@ body {
 .app-hero-container-b {
   margin-top: 15vh;
 }
+.app-developers {
+  flex-direction: row;
+  gap: 3rem;
+  justify-content: space-between; 
+}
+.app-developers h1 {
+  margin-right: 3em;
+}
 .app-developers h1, .app-hero-container-b h1 {
-  font-size: 45px;
+  font-size: 60px;
 }
 .app-developers img {
-  width: 320px;
+  width: 20%;
 }
 .app-hero-cta-stretch button {
   width:40%;
