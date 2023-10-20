@@ -1,6 +1,0 @@
-export const endpoint = 'https://todoappio.onrender.com'
-export const mainroute = '/'
-export const backuproute = '/list/backup'
-export const restoreroute = '/list/restore'
-export const siginroute = '/auth/signin'
-export const signuproute = '/auth/signup'
