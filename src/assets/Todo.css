@@ -1,0 +1,148 @@
+#notodo-container {
+  background-color: transparent;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25vh;
+}
+
+#notodo-container img {
+  width: 200px;
+  display:block;
+  margin:auto;
+}
+
+#notodo-container h1, #todo-heading {
+  background-color: transparent;
+  font-family: 'interbold',sans-serif;
+  text-align: center;
+  font-size: 30px;
+  color: var(--app-clA)
+}
+
+#todo-heading {
+  font-size: 20px;
+  /* color:var(--app-bgB); */
+}
+
+#notodo-container button, #todo-next, .menu-btn {
+  background-color: var(--app-bgB);
+  font-family: 'nunito',sans-serif;
+  text-align: center;
+  display:block;
+  margin:auto;
+  color: var(--app-clB);
+  padding: 10px 12px;
+  border-radius: 7px;
+  margin-top: 2vh;
+  cursor:pointer;
+  outline:none;
+}
+
+#todo-next {
+  margin-bottom: 10vh;
+}
+
+#infotodo-container {
+  padding: 10px;
+  text-align: center;
+  background-color: var(--app-bgB);
+  color: var(--app-clB);
+  font-family: 'nunito',sans-serif;
+  animation: 0.3s slide forwards;
+}
+
+@keyframes slide {
+   from {scale:0;}
+   to {scale:1;}
+}
+
+.todo-body {
+  padding: 4vh 1vh;
+  overflow: hidden;
+  display:flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1vh;
+  gap: 4vh;
+  width: 100%;
+}
+
+.todo-container {
+  background-color: var(--app-bgC);
+  padding:15px;
+  border-radius: 7px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  flex-direction: column;
+  cursor: pointer;
+  transition: 0.1s ease;
+  overflow:hidden;
+  white-space: wrap;
+}
+
+.todo-container:hover {
+  border: 2px solid var(--app-bgB);
+}
+
+.todo-container h3 { 
+  font-family: 'interbold',sans-serif;
+  color: var(--app-clA);
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.todo-container div { 
+  font-family: 'nunito',sans-serif;
+  color: var(--app-clA);
+  /* overflow:auto;
+  white-space: wrap; */
+}
+
+.todo-container p { 
+  font-family: 'nunito',sans-serif;
+  font-size: 14px;
+  color: var(--app-bgB);
+}
+
+.checked {
+  cursor :pointer;
+  width:25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid var(--app-bgB);
+}
+
+.auth-inp {
+  padding:15px;
+  margin-bottom: 3vh;
+  transition: 0.1s ease;
+}
+
+.auth-inp:hover {
+  outline:  1px solid var(--app-bgB);
+}
+
+#loader {
+  display:block;
+  margin:auto;
+  animation: 1.6s spin linear infinite;
+}
+
+@keyframes spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+@media (min-width:700px) {
+.todo-container {
+  width: 48%;
+}
+}
