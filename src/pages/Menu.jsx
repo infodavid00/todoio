@@ -25,7 +25,7 @@ export default function Menu({click, data}) {
      setisloadingb(true)
      const url = endpoint + backuproute + `?signature=${signature()}`
      const response = await axios.put(url, storage, {
-      headers: {'Content-Type': 'application/json'},withCredentials: true})
+      headers: {'Content-Type': 'application/json'}})
      const rs = response.data
      if (rs.acknowleged === 'Ok') {
       window.location.reload()
@@ -50,7 +50,7 @@ export default function Menu({click, data}) {
      setisloadingr(true)
      const url = endpoint + restoreroute + `?signature=${signature()}`
      const response = await axios.get(url, {
-      headers: {'Content-Type': 'application/json'},withCredentials: true})
+      headers: {'Content-Type': 'application/json'}})
      const rs = response.data
      if (rs.acknowleged === 'Ok') {
       localStorage.setItem('todoapp', JSON.stringify(rs.data.ulists))

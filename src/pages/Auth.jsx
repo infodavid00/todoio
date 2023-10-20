@@ -41,7 +41,7 @@ async function handleAuthentication(data, type) {
           setisloading(true)
          const url = type === 'signin' ? endpoint+siginroute : endpoint+signuproute;
          const response = await axios.post(url, data, {
-          headers: {'Content-Type': 'application/json'},withCredentials: true})
+          headers: {'Content-Type': 'application/json'}})
          const rs = response.data
          if (rs.acknowledged === 'Ok') {
           localStorage.setItem('signature', JSON.stringify({signature : rs.data}))

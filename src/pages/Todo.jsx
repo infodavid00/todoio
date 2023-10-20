@@ -28,8 +28,7 @@ export default function Todo() {
         try {
           const url = endpoint + mainroute + `?signature=${signature()}`;
           const response = await axios.get(url, {
-            headers: { 'Content-Type': 'application/json' },
-            withCredentials: true,
+            headers: { 'Content-Type': 'application/json' }
           });
           setdata(response.data.data);
           setuser(true);
