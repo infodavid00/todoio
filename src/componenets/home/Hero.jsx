@@ -9,8 +9,7 @@ export default function Hero() {
        <div className="app-hero-cta-b">"Task Management Made Simple on Web and Mobile" - openorder organisation</div>
        <div className="app-hero-cta-b app-hero-cta-flex">
        {/* <!-- use app-hero-cta-stretch in the div for long buttons. use app-hero-cta-flex to make the button align next to each other  --> */}
-        <button onClick={()=> window.location.href = '/todo'}>Try web version</button>
-        <button><a href="/todo" download={true} style={{color:'inherit',textDecoration:'none'}}>Download android app</a></button>
+        <button onClick={()=> window.location.href = '/todo'}>Get started with todoio</button>
        </div>
        </div>
    </section>
